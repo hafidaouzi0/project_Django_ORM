@@ -42,7 +42,10 @@ class Product(models.Model):
     url=models.SlugField(null=True)
     is_active=models.BooleanField(default=True)
     description=models.TextField(blank=True)
-    category=models.ForeignKey(Category,on_delete=models.CASCADE)
+    #category=models.ForeignKey(Category,on_delete=models.CASCADE)
+    #the relationship between the category and the product is many to many
+    category=models.ManyToManyField(Category)
+
 
 
 class Stock(models.Model):
